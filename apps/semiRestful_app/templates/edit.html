@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ADD NEW USER</title>
+
+<style>
+#container{
+    margin-left: 10px;
+}
+form input{
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 200px;
+}
+form button{
+    width: 110px;
+    margin-top: 10px;
+    background: cornflowerblue;
+}
+</style>
+</head>
+<body>
+    <div id="container">
+            <h1>Edit User {{users.id}}</h1>
+            <form action="/update" method="POST">
+                {%csrf_token%}
+                <input type="hidden" value="{{users.id}}" name="id">
+                <label for="firstname">First Name:</label>
+                <!-- <br> -->
+                <input type="text" name="firstname" value="{{users.firstname}}">
+                <!-- <br> -->
+                <label for="lastname">Last Name:</label>
+                <!-- <br> -->
+                <input type="text" name="lastname" value="{{users.lastname}}">
+                <!-- <br> -->
+                <label for="email">Email:</label>
+                <!-- <br> -->
+                <input type="text" name="email" value="{{users.email}}">
+                <!-- <br> -->
+                <button>Update</button>
+            </form>
+    </div>
+    
+</body>
+</html>

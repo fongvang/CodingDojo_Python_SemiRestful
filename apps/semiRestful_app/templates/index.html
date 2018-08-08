@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Semi-Restful Index</title>
+<style>
+#container{
+    border: 1px solid black;
+    width: 850px;
+    margin-left: 10px;
+    padding: 10px;
+}
+.id{
+    width: 40px;
+}
+.fullname{
+    width: 200px;
+}
+.email{
+    width: 275px;
+}
+.date{
+    width: 175px;;
+}
+.add{
+    margin-left: 10px;
+}
+h1{
+    margin-left: 10px;
+}
+</style>
+</head>
+<body>
+    <h1>Users</h1>
+    <div id="container">
+        <table>
+            <thead>
+                <td class="id">Id</td>
+                <td class="fullname">Full Name</td>
+                <td class="email">Email</td>
+                <td class="date">Created At</td>
+                <td class="actions">Actions</td>
+            </thead>
+          {% for user_list in users %}
+            <tr>
+                <td class="id">{{user_list.id}}</td>
+                <td class="fullname"><a href="user/{{user_list.id}}">{{user_list.firstname}} {{user_list.lastname}}</a></td>
+                <td class="email">{{user_list.email}}</td>
+                <td class="date">{{user_list.created_at}}</td>
+                <td class="actions"><p><a href="user/{{user_list.id}}">Show</a> | <a href="user/{{user_list.id}}/edit">Edit</a> | <a href="user/{{user_list.id}}/delete">Delete</a></p></td>
+            </tr>
+          {% endfor %}
+        </table>
+    </div>
+    <p class="add"><a href="/new">Add New User!</a></p>
+</body>
+</html>
